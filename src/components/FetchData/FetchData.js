@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./FetchData.css";
 
 const FetchData = () => {
   const [values, setValues] = useState(null);
@@ -14,30 +15,50 @@ const FetchData = () => {
   console.log(values, "values");
 
   if (!values) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container">
+        <div className="justify-content-center text-center fs-6">
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="Dataframe">
-      {values.map((item, index) => (
-        <div
-          key={index}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            textAlign: "center",
-          }}
-        >
-          <p style={{ width: "33%" }}>{item.id}</p>
-          <p style={{ width: "33%" }}>{item.date}</p>
-          <p style={{ width: "33%" }}>{item.open}</p>
-          <p style={{ width: "33%" }}>{item.high}</p>
-          <p style={{ width: "33%" }}>{item.low}</p>
-          <p style={{ width: "33%" }}>{item.close}</p>
-          <p style={{ width: "33%" }}>{item.volume}</p>
-          <p style={{ width: "33%" }}>{item.company_name}</p>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="rectangle">
+          <table
+            className="table table-borderless table-d my-table"
+            id="csstable"
+          >
+            <thead>
+              <tr className="tr-green">
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+                <th>Company</th>
+              </tr>
+            </thead>
+            <tbody>
+              {values.map((item) => (
+                <tr className="tr-grey" key={item.id}>
+                  <td>{item.date}</td>
+                  <td>{item.open}</td>
+                  <td>{item.high}</td>
+                  <td>{item.low}</td>
+                  <td>{item.close}</td>
+                  <td>{item.volume}</td>
+                  <td>{item.company_name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

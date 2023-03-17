@@ -1,14 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+:root{
+  --si-green: #0ea500;
+  --si-white: #f2f2f2;
+  --si-black: #161616;
+  --si-gray: #555454;
+}
+
 * {
     margin: 0;
     font-family: "QuickSand";
-    color: #3f3f3f;
+    /* color: #555454; */
     background-color: rgb(255, 255, 255);
   }
 
-  .content {
-    max-width: 920px;
-    margin: 40px auto;
-    padding: 20px;
-  }
+p, h1{
+  color: var(--si-gray)
+}
+
+.content {
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.btn-black{
+  background-color: transparent;
+  color: var(--si-black);
+}
+
+.btn-green:hover{
+  color: var(--si-green);
+  background-color: #007e20;
+}
+

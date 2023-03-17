@@ -1,0 +1,35 @@
+.tr-green{
+    color: var(--si-green);
+}
+  
+/* .table-d{
+    color: var(--si-gray);
+    font-weight: lighter;
+
+}
+.tr-gray{
+    color: var(--si-gray);
+} */
+
+
+.my-table th {
+    font-weight: bold; 
+    color: var(--si-green);
+  }
+
+  
+.my-table td {
+    font-weight: normal;
+    color: var(--si-gray);
+  }
+
+.rectangle{
+    max-height: 400px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 40px;
+    border: 1px solid var(--si-black);
+    border-radius: 40px;
+    overflow: auto;
+    padding-top: 20px;
+}
