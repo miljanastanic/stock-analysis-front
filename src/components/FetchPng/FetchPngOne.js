@@ -1,22 +1,13 @@
 import { useEffect, useState } from "react";
 import "./FetchPng.css";
 
-const FetchPng = ({ endpoint = "", param1 = "", param2 = "", param3 = "" }) => {
+const FetchPngOne = ({ endpoint = "", param1 = "" }) => {
   const [img, setImg] = useState();
   const baseUrl = "http://localhost:5000";
-  const url = `${baseUrl}/${endpoint}`;
+  const code = param1;
 
-  if (param1) {
-    url += `?day1=${param1}`;
-  }
-
-  if (param2) {
-    url += `${param1 ? "&" : "?"}day2=${param2}`;
-  }
-
-  if (param3) {
-    url += `${param1 || param2 ? "&" : "?"}day3=${param3}`;
-  }
+  const queryParams = new URLSearchParams({ code });
+  const url = `${baseUrl}${endpoint}/?${queryParams}`;
 
   const fetchImage = async () => {
     const res = await fetch(url);
@@ -27,7 +18,7 @@ const FetchPng = ({ endpoint = "", param1 = "", param2 = "", param3 = "" }) => {
 
   useEffect(() => {
     fetchImage();
-    console.log("here");
+    console.log(param1);
   }, [endpoint]);
 
   return (
@@ -47,4 +38,4 @@ const FetchPng = ({ endpoint = "", param1 = "", param2 = "", param3 = "" }) => {
   );
 };
 
-export default FetchPng;
+export default FetchPngOne;

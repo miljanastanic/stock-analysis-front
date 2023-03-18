@@ -26,6 +26,8 @@ const FetchData = () => {
 
   return (
     <div className="container">
+      <h1>Dataset</h1>
+      <br></br>
       <div className="row justify-content-center">
         <div className="rectangle">
           <table
