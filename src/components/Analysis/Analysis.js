@@ -4,7 +4,6 @@ import FetchPng from "../FetchPng/FetchPng";
 const Analysis = () => {
   const [notActiveButton, setNotActive] = useState(1);
   const [path, setPath] = useState("cv");
-  const [days, setDays] = useState(["", "", ""]);
 
   const handleButtonClick = (num) => {
     setNotActive(num);
@@ -26,9 +25,6 @@ const Analysis = () => {
         setPath("adr");
         break;
     }
-  };
-  const handleSubmitClick = (num) => {
-    setPath("moving");
   };
 
   return (
@@ -77,58 +73,9 @@ const Analysis = () => {
           </button>
         </div>
         <br></br>
-        <br></br>
-        {/* <div className="row">
-          <h1>The moving avarage</h1>
-          <p>For the moving average please chose the number of days:</p>
-          <form>
-            <div className="row">
-              <div class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="enter number of days"
-                  value={days[0]}
-                  onChange={(e) => setDays([e.target.value, days[1], days[2]])}
-                />
-              </div>
-              <div class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="enter number of days"
-                  value={days[1]}
-                  onChange={(e) => setDays([days[0], e.target.value, days[2]])}
-                />
-              </div>
-              <div class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="enter number of days"
-                  value={days[2]}
-                  onChange={(e) => setDays([days[0], days[1], e.target.value])}
-                />
-              </div>
-              <div class="col-auto">
-                <button
-                  type="submit"
-                  class="btn btn-outline-dark"
-                  onClick={() => handleButtonClick()}
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </form>
-          <FetchPng
-            endpoint={path}
-            days={days[0] + "," + days[1] + "," + days[2]}
-          ></FetchPng>
-        </div> */}
-      </div>
-      <div>
-        <FetchPng endpoint={path}></FetchPng>
+        <div>
+          <FetchPng endpoint={path}></FetchPng>
+        </div>
       </div>
     </div>
   );

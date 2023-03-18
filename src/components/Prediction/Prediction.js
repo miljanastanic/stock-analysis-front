@@ -2,8 +2,8 @@ import { useState } from "react";
 import FetchPngOne from "../FetchPng/FetchPngOne";
 
 const Prediction = () => {
-  const [company, setParam] = useState("GOOG");
-  const [notActiveButton, setNotActive] = useState(1);
+  const [company, setParam] = useState(null);
+  const [notActiveButton, setNotActive] = useState();
 
   const handleButtonClick = (num) => {
     setNotActive(num);
@@ -11,18 +11,15 @@ const Prediction = () => {
       case 1:
         console.log(num);
         setParam("GOOG");
-        console.log(company);
         break;
       case 2:
         setParam("AMZN");
-        console.log(company);
         break;
       case 4:
-        setParam("AAPL");
-        console.log(company);
+        setParam("MSFT");
         break;
       case 5:
-        setParam("MSFT");
+        setParam("AAPL");
         break;
     }
   };
@@ -33,7 +30,9 @@ const Prediction = () => {
         <div className="row">
           <h1>This is prediction</h1>
           <p>
-            Predicting the closing price stock price of one of these companies:
+            Predicting the closing price stock price of one of these companies.
+            Note that the model needs a few minutes to load because model is
+            training:
           </p>
         </div>
         <br></br>
@@ -44,7 +43,7 @@ const Prediction = () => {
             }`}
             onClick={() => handleButtonClick(1)}
           >
-            Amazon
+            Google
           </button>
           <button
             className={`btn btn-sm mr-2 ${
@@ -52,7 +51,7 @@ const Prediction = () => {
             }`}
             onClick={() => handleButtonClick(2)}
           >
-            Google
+            Amazon
           </button>
           <button
             className={`btn btn-sm mr-2 ${
@@ -75,7 +74,7 @@ const Prediction = () => {
         <br></br>
       </div>
       <div>
-        <FetchPngOne endpoint={"model"} params={company}></FetchPngOne>
+        <FetchPngOne params={company} endpoint={"model"}></FetchPngOne>
       </div>
     </div>
   );
