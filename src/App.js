@@ -9,6 +9,9 @@ import Analysis from "./components/Analysis/Analysis";
 import Correlation from "./components/Correlation/Correlation";
 import Prediction from "./components/Prediction/Prediction";
 import Moving from "./components/Moving/Moving";
+import DocumentationList from "./components/Documentation/DocumentationList";
+import DocumentationPage from "./components/Documentation/DocumentationPage";
+import DocumentationDetails from "./components/Documentation/DocumentationDetails";
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
           <Route path="/moving" element={<Moving />} />
           <Route path="/correlation" element={<Correlation />} />
           <Route path="/prediction" element={<Prediction />} />
+          <Route path="/documentation" element={<DocumentationPage />} />
+          <Route path="/documentation/:id" element={<DocumentationDetails />} />
         </Routes>
       </div>
     </div>

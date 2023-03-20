@@ -1,18 +1,9 @@
 import { useEffect, useState } from "react";
 import "./FetchData.css";
+import useFetch from "./UseFetch";
 
 const FetchData = () => {
-  const [values, setValues] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/data").then((res) => {
-      res.json().then((response) => {
-        setValues(response);
-      });
-    });
-  }, []);
-
-  console.log(values, "values");
+  const { values } = useFetch("http://localhost:5000/data");
 
   if (!values) {
     return (
